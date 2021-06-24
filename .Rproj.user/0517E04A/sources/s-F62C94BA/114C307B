@@ -1,9 +1,9 @@
 {
     "id": "114C307B",
-    "path": "F:/_2021_MFPProads/roads_spl/05-summary.Rmd",
-    "project_path": "05-summary.Rmd",
+    "path": "F:/_2021_MFPProads/roads_spl/04-demo.Rmd",
+    "project_path": "04-demo.Rmd",
     "type": "r_markdown",
-    "hash": "2706669168",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1624568000964.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "18,0",
+        "cursorPosition": "19,41",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1624573866,
+    "lastKnownWriteTime": 1624575037,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1624573866321,
+    "last_content_update": 1624575037875,
     "read_only": false,
     "read_only_alternatives": []
 }

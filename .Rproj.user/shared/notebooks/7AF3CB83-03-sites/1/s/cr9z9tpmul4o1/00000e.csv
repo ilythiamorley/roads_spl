@@ -1,0 +1,7 @@
+"0",""
+"0","m <- mapview::mapview(sites[1,],map.type = ""Esri.WorldImagery"")"
+"0",""
+"0","coords <- c(boundary[3],"
+"0","            boundary[2])"
+"0",""
+"0","m@map %>% setView(coords[1], coords[2], zoom = 16)"

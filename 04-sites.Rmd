@@ -1,0 +1,94 @@
+# Study Sites {-#sites}
+
+This project will be conducted across four main study sites.
+
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+
+library(mapview)
+library(dplyr)
+library(sf)
+library(sp)
+library(leaflet)
+
+boundary <- c("boundary", 48.751, -93.100)
+nipissing <- c("nipissing", 46.345, -79.456)
+romeo <- c("romeo", 48.252, -81.692)
+ogoki <- c("ogoki", 50.899, -87.944)
+
+sites <- as.data.frame(rbind(boundary,nipissing,romeo,ogoki))
+names(sites) <- c("site","lat","lon")
+
+sites <- sites %>%
+    sf::st_as_sf(., coords = c("lon", "lat"))
+
+st_crs(sites) <- st_crs(breweries)
+
+
+mapview::mapview(sites, map.type = "Esri.WorldImagery")
+
+```
+
+
+
+## Boundary Waters Forest Management Area {-#boundary}
+
+Boundary Waters Forest Management Area managed by Resolute Forest Products contains well mapped road networks interpreted from aerial imagery. 
+
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+
+m <- mapview::mapview(sites[1,],map.type = "Esri.WorldImagery")
+
+coords <- c(boundary[3],
+            boundary[2])
+
+m@map %>% setView(coords[1], coords[2], zoom = 12)
+```
+
+
+## Nipissing Forest {-#nipissing}
+
+(cooperative SFL Nipissing Forest Resource Management) which is well-accessed with a relatively extensive road network, and variation in the origin and degree of current activity 
+
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+
+
+m <- mapview::mapview(sites[2,],map.type = "Esri.WorldImagery")
+
+coords <- c(nipissing[3],
+            nipissing[2])
+
+m@map %>% setView(coords[1], coords[2], zoom = 12)
+```
+
+
+## Romeo Malette {-#romeo}
+
+(RYAM Forest Management) which has road networks supporting forestry and 
+
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+
+m <- mapview::mapview(sites[3,],map.type = "Esri.WorldImagery")
+
+coords <- c(romeo[3],
+            romeo[2])
+
+m@map %>% setView(coords[1], coords[2], zoom = 12)
+
+```
+
+## Ogoki Forest {-#ogoki}
+
+which is of high interest due to its location within key Caribou habitat. 
+
+
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+
+m <- mapview::mapview(sites[4,],map.type = "Esri.WorldImagery")
+
+coords <- c(ogoki[3],
+            ogoki[2])
+
+m@map %>% setView(coords[1], coords[2], zoom = 12)
+
+```
+

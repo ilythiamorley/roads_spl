@@ -1,0 +1,74 @@
+# Demonstration {-#demo}
+
+```{r,warning=FALSE,message=FALSE}
+library(lidR)
+library(sf)
+library(MFFProads)
+library(dplyr)
+library(terra)
+library(leaflet)
+
+#--- read in laz and road shapefile ---#
+ctg <- readLAScatalog("F:/_2021_MFPProads/RMF/RMF_roads_SPL/tst/split")
+shp <- st_read("F:/_2021_MFPProads/RMF/RMF_roads_SPL/tst/roads_.shp",quiet=TRUE)
+
+mapview::mapview(list(ctg,shp), layer.name = c("catalog","roads"),
+                 color = "red", map.type = "Esri.WorldImagery")
+
+```
+
+## Detect road and calculate metrics {-#}
+
+```{r}
+#--- test on single road ---#
+roadx <- shp %>%
+  dplyr::filter(OBJECTID == 29976)
+
+```
+
+```{r, echo = FALSE}
+m2 <- mapview::mapview(list(ctg,roadx), layer.name = c("catalog","road"),
+                 color = "red", map.type = "Esri.WorldImagery")
+
+coords <- c(-81.89471,
+            47.93648)
+
+m2@map %>% setView(coords[1], coords[2], zoom = 17)
+
+```
+## Detecting the road {-#detect}
+```{r,eval=FALSE}
+options(MFFProads.debug.finding = TRUE)
+options(MFFProads.debug.measuring = FALSE)
+options(MFFProads.debug.metrics = FALSE)
+res1 <- measure_road(roadx, ctg, mffproads_default_parameters, relocate = TRUE)
+```
+
+![Example of road detection](F:/_2021_MFPProads/roads_spl/img/detect/detect.gif)
+
+## Measuring the road {-#measure}
+```{r,eval=FALSE}
+options(MFFProads.debug.finding = FALSE)
+options(MFFProads.debug.measuring = TRUE)
+options(MFFProads.debug.metrics = FALSE)
+res1 <- measure_road(roadx, ctg, mffproads_default_parameters, relocate = TRUE)
+```
+
+![Example of road measurement](F:/_2021_MFPProads/roads_spl/img/measure/measure.gif)
+
+## Derive road metrics {-#metrics}
+```{r,eval=FALSE}
+options(MFFProads.debug.finding = FALSE)
+options(MFFProads.debug.measuring = FALSE)
+options(MFFProads.debug.metrics = TRUE)
+res1 <- measure_road(roadx, ctg, mffproads_default_parameters, relocate = TRUE)
+```
+
+
+![Example of scoring](F:/_2021_MFPProads/roads_spl/img/scoring.png)
+
+```{r}
+#show road output
+
+res1
+```

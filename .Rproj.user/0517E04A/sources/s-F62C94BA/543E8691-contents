@@ -1,3 +1,7 @@
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+
+
+
 options(MFFProads.debug.finding = FALSE)
 options(MFFProads.debug.measuring = FALSE)
 options(MFFProads.debug.metrics = TRUE)

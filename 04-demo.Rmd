@@ -17,7 +17,7 @@ mapview::mapview(list(ctg,shp), layer.name = c("catalog","roads"),
 
 ```
 
-## Detect road and calculate metrics {-#}
+## Detect road and calculate metrics {-#detectandcalc}
 
 ```{r}
 #--- test on single road ---#
@@ -36,7 +36,9 @@ coords <- c(-81.89471,
 m2@map %>% setView(coords[1], coords[2], zoom = 17)
 
 ```
+
 ## Detecting the road {-#detect}
+
 ```{r,eval=FALSE}
 options(MFFProads.debug.finding = TRUE)
 options(MFFProads.debug.measuring = FALSE)

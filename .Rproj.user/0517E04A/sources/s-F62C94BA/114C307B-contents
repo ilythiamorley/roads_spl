@@ -20,7 +20,7 @@ Simply described, the current road detection and measurement algorithm `measure_
 
 ## Example road {-#ex}
 
-This example uses a 1 km^2 section of SPL data and road network shapefile from the [Romeo Malette](-#romeo) forest.
+This example uses a 1 km^2^ section of SPL data and road network shapefile from the [Romeo Malette](-#romeo) forest.
 
 ```{r,warning=FALSE,message=FALSE}
 #--- load in required libraries ---#
@@ -91,7 +91,7 @@ res1 <- measure_road(roadx, ctg, mffproads_default_parameters, relocate = TRUE)
 
 ## Derive road metrics {-#metrics}
 
-Metrics about the road can also be measured, giving details about drivable quality and embankments. A final _score_ of the roads is provided with the following gradient:
+Metrics about the road can also be measured, giving details about drivable quality and embankments. A final _STATE_ of the roads is provided with the following gradient:
 
 1. Road exists, very confident
 2. Road exists, some confusion
@@ -114,5 +114,5 @@ res1 <- measure_road(roadx, ctg, mffproads_default_parameters, relocate = TRUE)
 
 res1
 
-res$score
+res$STATE
 ```

@@ -1,11 +1,33 @@
 # Demonstration {-#demo}
 
+[Jean-Romain](#jrr) - in partnership with the Quebec ministry - has been developing approaches to detect, measure, and evaluate road detection from lidar data. His approach leverages the [lidR](https://github.com/Jean-Romain/lidR) package, which has seen massive uptake and use globally. lidR, also developed by Jean-Romain, is free and open source and is considered a key resource for lidar data processing globally. 
+
+## Algorithm overview {-#alg}
+
+Simply described, the current road detection and measurement algorithm `measure_road()` leverages the lidR processing engine to extract relevant segments of lidar data from a point-cloud with a paired linear road network. The approach is in ongoing development, but follows the following steps:
+
+1. A lidar dataset and road segment and provided
+
+2. The road segment is buffed and used to clip relevant lidar data
+
+3. The road is divided into incremental segments
+
+3. Structural lidar metrics are calculated at each segment used to define the location with the highest probability for the road
+
+5. Important road measurements are calculated including drivable width and embankment width.
+
+4. If the algorithm is confident that the road exists, a new (corrected) road segment is produced.
+
+## Example road {-#ex}
+
+This example uses a 1 km^2 section of SPL data and road network shapefile from the [Romeo Malette](-#romeo) forest.
+
 ```{r,warning=FALSE,message=FALSE}
+#--- load in required libraries ---#
 library(lidR)
 library(sf)
 library(MFFProads)
 library(dplyr)
-library(terra)
 library(leaflet)
 
 #--- read in laz and road shapefile ---#
@@ -18,6 +40,8 @@ mapview::mapview(list(ctg,shp), layer.name = c("catalog","roads"),
 ```
 
 ## Detect road and calculate metrics {-#detectandcalc}
+
+Individual road segments can be visualized alongside co-located SPL data.
 
 ```{r}
 #--- test on single road ---#
@@ -39,27 +63,43 @@ m2@map %>% setView(coords[1], coords[2], zoom = 17)
 
 ## Detecting the road {-#detect}
 
+We define that we want to find the road using `options()`. An example of how data are visualized is provided below. Note the different metrics used. A spike in the purple lines denotes an increased probability of road for a given point in the transect.
+
 ```{r,eval=FALSE}
+#--- find the roads ---#
 options(MFFProads.debug.finding = TRUE)
 options(MFFProads.debug.measuring = FALSE)
 options(MFFProads.debug.metrics = FALSE)
 res1 <- measure_road(roadx, ctg, mffproads_default_parameters, relocate = TRUE)
 ```
 
-![Example of road detection](F:/_2021_MFPProads/roads_spl/img/detect/detect.gif)
+![Example of road detection](img/detect/detect.gif)
 
 ## Measuring the road {-#measure}
+
+Following detection of the road the algorithm can also measure important road parameters.
+
 ```{r,eval=FALSE}
+#--- measure the roads ---#
 options(MFFProads.debug.finding = FALSE)
 options(MFFProads.debug.measuring = TRUE)
 options(MFFProads.debug.metrics = FALSE)
 res1 <- measure_road(roadx, ctg, mffproads_default_parameters, relocate = TRUE)
 ```
 
-![Example of road measurement](F:/_2021_MFPProads/roads_spl/img/measure/measure.gif)
+![Example of road measurement](img/measure/measure.gif)
 
 ## Derive road metrics {-#metrics}
+
+Metrics about the road can also be measured, giving details about drivable quality and embankments. A final _score_ of the roads is provided with the following gradient:
+
+1. Road exists, very confident
+2. Road exists, some confusion
+3. Road doesnt exist, some confusion
+4. Road doesnt exist
+
 ```{r,eval=FALSE}
+#--- calculate road metrics ---#
 options(MFFProads.debug.finding = FALSE)
 options(MFFProads.debug.measuring = FALSE)
 options(MFFProads.debug.metrics = TRUE)
@@ -67,10 +107,12 @@ res1 <- measure_road(roadx, ctg, mffproads_default_parameters, relocate = TRUE)
 ```
 
 
-![Example of scoring](F:/_2021_MFPProads/roads_spl/img/scoring.png)
+![Example of scoring](img/scoring.png)
 
 ```{r}
-#show road output
+#--- show road output ---#
 
 res1
+
+res$score
 ```

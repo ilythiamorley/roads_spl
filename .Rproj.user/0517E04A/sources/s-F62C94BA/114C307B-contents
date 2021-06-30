@@ -89,11 +89,3 @@ Metrics about the road can also be measured, giving details about drivable quali
 
 
 ![Example of scoring](img/scoring.png)
-
-```{r}
-#--- show road output ---#
-
-res1
-
-res$STATE
-```

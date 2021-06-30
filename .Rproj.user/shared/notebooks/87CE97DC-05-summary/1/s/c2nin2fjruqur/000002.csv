@@ -1,6 +1,0 @@
-"0",""
-"0","#--- test on single road ---#"
-"0","road <- shp %>%"
-"0","  dplyr::filter(OBJECTID ==  29976)"
-"0",""
-"0","plot(ctg)"

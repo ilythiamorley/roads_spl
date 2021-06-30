@@ -4,7 +4,7 @@
 
 ## Algorithm overview {-#alg}
 
-Simply described, the current road detection and measurement algorithm `measure_road()` leverages the lidR processing engine to extract relevant segments of lidar data from a point-cloud with a paired linear road network. The approach is in ongoing development, but follows the following steps:
+The implementation of this algorithm is a work in progress. Function names are likely to change, methods are likely to evolve, and debug options are likely to be removed. Simply described, the current road detection and measurement algorithm `measure_road()` leverages the lidR processing engine to extract relevant segments of lidar data from a point-cloud with a paired linear road network. The approach is in ongoing development, but follows the following steps:
 
 1. A lidar dataset and road segment and provided
 
@@ -67,9 +67,6 @@ We define that we want to find the road using `options()`. An example of how dat
 
 ```{r,eval=FALSE}
 #--- find the roads ---#
-options(MFFProads.debug.finding = TRUE)
-options(MFFProads.debug.measuring = FALSE)
-options(MFFProads.debug.metrics = FALSE)
 res1 <- measure_road(roadx, ctg, mffproads_default_parameters, relocate = TRUE)
 ```
 
@@ -78,14 +75,6 @@ res1 <- measure_road(roadx, ctg, mffproads_default_parameters, relocate = TRUE)
 ## Measuring the road {-#measure}
 
 Following detection of the road the algorithm can also measure important road parameters.
-
-```{r,eval=FALSE}
-#--- measure the roads ---#
-options(MFFProads.debug.finding = FALSE)
-options(MFFProads.debug.measuring = TRUE)
-options(MFFProads.debug.metrics = FALSE)
-res1 <- measure_road(roadx, ctg, mffproads_default_parameters, relocate = TRUE)
-```
 
 ![Example of road measurement](img/measure/measure.gif)
 
@@ -97,14 +86,6 @@ Metrics about the road can also be measured, giving details about drivable quali
 2. Road exists, some confusion
 3. Road doesnt exist, some confusion
 4. Road doesnt exist
-
-```{r,eval=FALSE}
-#--- calculate road metrics ---#
-options(MFFProads.debug.finding = FALSE)
-options(MFFProads.debug.measuring = FALSE)
-options(MFFProads.debug.metrics = TRUE)
-res1 <- measure_road(roadx, ctg, mffproads_default_parameters, relocate = TRUE)
-```
 
 
 ![Example of scoring](img/scoring.png)

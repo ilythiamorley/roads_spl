@@ -10,12 +10,12 @@ library(sf)
 library(sp)
 library(leaflet)
 
-boundary <- c("boundary", 48.751, -93.100)
+dog <- c("dog", 48.918, -90.230)
 nipissing <- c("nipissing", 46.345, -79.456)
 romeo <- c("romeo", 48.252, -81.692)
-ogoki <- c("ogoki", 50.899, -87.944)
+kenogami <- c("kenogami", 50.045, -86.793)
 
-sites <- as.data.frame(rbind(boundary,nipissing,romeo,ogoki))
+sites <- as.data.frame(rbind(dog,nipissing,romeo,kenogami))
 names(sites) <- c("site","lat","lon")
 
 sites <- sites %>%
@@ -43,35 +43,31 @@ m@map %>% setView(coords[1], coords[2], zoom = 12)
 
 ```
 
-## Ogoki Forest {-#ogoki}
+## Kenogami Forest {-#kenogami}
 
-The Ogoki Forest is approximately 10,900 km^2^ in size and is located in  Northwestern  Ontario, approximately 400km north-east of Thunder Bay. The Forest incorporates approximately 9,740 km^2^ of forested area, the majority of which is Crown land subject to forest management planning and forest management operations. The current boundaries of the Ogoki Forest were formally established in 2004. The land is currently managed by the Agoke Development Limited Partnership, whic incorporates Eabametoon, Marten Falls, and Aroland First Nations.
+The Kenogami Forest is located approximately 300 kilometres northeast of Thunder Bay. The Forest occupies an area of 1,977,684 hectares, of which 8.8% is water. Of the total forested area, less than 1% is patent land.  
 
 ```{r,echo=FALSE,warning=FALSE,message=FALSE}
 
 m <- mapview::mapview(sites[4,],map.type = "Esri.WorldImagery")
 
-coords <- c(ogoki[3],
-            ogoki[2])
+coords <- c(kenogami[3],
+            kenogami[2])
 
 m@map %>% setView(coords[1], coords[2], zoom = 12)
 
 ```
 
-## Boundary Waters Forest Management Area {-#boundary}
+## Dog River-Matawin Forest {-#dog}
 
-The Crossroute Forest is located wholly within the Fort Frances District of the Ontario Ministry of Natural Resources and Forestry (MNRF), which is administered by the Northwest Regional Office in Thunder Bay. The Crossroute Forest is managed under the Sustainable Forest Licence (SFL) #542245. The southern edge of the forest borders the United States of America, it shares a boundary with Quetico Provincial Park to the southeast, the Sapawe Forest to the east and is bordered in the north by the Kenora, Wabigoon and English River SFL’s. The town of Fort Frances is located within the southwestern portion of the Crossroute Forest. The town of Atikokan is located within the southeastern portion of the Crossroute Forest. The Crossroute Forest covers an area of 15,935 km^2^. 
-
-The Sapawe Forest is also located in the MNRF Fort Frances District as well, which is administered by the Northwest Regional Office in Thunder Bay. The Sapawe Forest is managed under a Forest Resource License (FRL #552398) with Rainy Lake Tribal Resource Management Inc. (RLTRMI). As of April 1, 2017, the Sapawe Forest is managed under an FRL and Forestry Agreement between the MNRF and RLTRMI. The forest is bordered to the south by Quetico Provincial Park, to the east by the Dog River-Matawin Forest, the Crossroute Forest to the west and the English River and Wabigoon Forests to the north. The Sapawe Forest covers an area of 3,016 km^2^.
-
-Resolute FP Canada Inc. (referred to as Resolute) and Rainy Lake Tribal Resource Management Inc. (RLTRMI) requested to the Ontario Ministry of Natural Resources and Forestry (MNRF) to amalgamate the above forests into one new management unit; the Crossroute-Sapawe Forest to be licence under an enhanced Sustainable Forest License (eSFL).  The name of this amalgamated unit/forest is the Boundary Waters Forest.
+The Forest covers 1,065,934 hectares of forested area, water and other non-forested areas. The distribution of lands and water across the various ownerships, as produced from the planning inventory,is as follows: 86.9% of the total management unit is under Crown ownership (84.9% in managed plus 2.0% in Crown Other),12.6% is patent land and 0.5% is other(federal land). 
 
 ```{r,echo=FALSE,warning=FALSE,message=FALSE}
 
 m <- mapview::mapview(sites[1,],map.type = "Esri.WorldImagery")
 
-coords <- c(boundary[3],
-            boundary[2])
+coords <- c(dog[3],
+            dog[2])
 
 m@map %>% setView(coords[1], coords[2], zoom = 12)
 ```

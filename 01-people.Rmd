@@ -50,6 +50,7 @@ Dech at Nipissing will recruit a Masters student for the field work verification
 
 Working with Reid at the Center for Northern Forest Ecosystem Research we will be able to examine the accuracy of the SPL derived road networks with existing approaches such as those from optical remote sensing. His understanding of the importance of roads attributes and age on habitat conditions will provide focus in terms of the relevance of the predicted attributes to cumulative effects mapping. In addition by having government partners on the project ensures that the outcomes will have immediate uptake by other users within the Ministry thereby ensuring successful technology transfer and knowledge exchange. 
 
+
 ### Grant McCartney {-#gmcc}
 
 [Mr. Grant McCartney](https://www.linkedin.com/in/grantmccartneygis) is an analyst at [Forsite](https://www.forsite.ca/), and formally acted as a spatial analyst and forest information systems coordinator with Rayonier Advanced Materials (RYAM) Forest Management. He performs spatial analysis in support of forest management planning (FMP) and forestry operations on the Gordon Cosens, Romeo Malette and Martel – Magpie Forests in Northeastern Ontario, Canada. He leads the acquisition of remotely sensed data including Digital Aerial Photogrammetry (DAP) and LiDAR for RYAM. Grant is a member of the Forest Information Data Advisory Group (FIDAG) and Provincial Forest Inventory Advisory Committee (PFIAC) MNRF committees working to improve the quality of spatial forest information in the province. Grant  has been an industrial partner in numerous research efforts including: the Assessment of Wood Attributes for REmote sensing (AWARE) project, CWFC – FIP, past FFT - KKTD projects and the recently approved Silva 21.
@@ -57,3 +58,13 @@ Working with Reid at the Center for Northern Forest Ecosystem Research we will b
 #### Responsibilities {-#responsibilties-gmcc}
 
 There are a number of forest management areas already acquired with SPL data available that will form the initial focus sites. McCartney will provide road vector information and any road construction date and positional information available over their tenure. McCartney or designate will attend project meetings, assess road network accuracy with Ryam staff and test developed software as required. 
+
+
+### Scott McPherson {-#sm}
+
+Scott McPherson is the planning forester and analyst for the Nipissing and Sudbury Forests of central Ontario, reporting to Nipissing Forest Resource Management, Inc. and the Vermilion Forest Management Company, Ltd. Scott has worked in the government and industry sectors for 25 years, focusing on growth & Yield, silviculture, and planning.
+
+
+#### Responsibilities {-#responsibilties-sm}
+
+Scott’s current responsibilities include inventory development, strategic planning and modeling, monitoring, and reporting. The newly acquired single photon LiDAR will be a significant asset and Scott is excited about the value it will add to future inventories for forest and road conditions across the land base.

@@ -31,8 +31,8 @@ library(dplyr)
 library(leaflet)
 
 #--- read in laz and road shapefile ---#
-ctg <- readLAScatalog("F:/_2021_MFPProads/RMF/RMF_roads_SPL/tst/split")
-shp <- st_read("F:/_2021_MFPProads/RMF/RMF_roads_SPL/tst/roads_.shp",quiet=TRUE)
+ctg <- readLAScatalog("E:/SPL_Roads/Rproj/RMF_roads_SPL/tst/split")
+shp <- st_read("E:/SPL_Roads/Rproj/RMF_roads_SPL/tst/roads_.shp",quiet=TRUE)
 
 mapview::mapview(list(ctg,shp), layer.name = c("catalog","roads"),
                  color = "red", map.type = "Esri.WorldImagery")

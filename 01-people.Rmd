@@ -68,3 +68,13 @@ Scott McPherson is the planning forester and analyst for the Nipissing and Sudbu
 #### Responsibilities {-#responsibilties-sm}
 
 Scott’s current responsibilities include inventory development, strategic planning and modeling, monitoring, and reporting. The newly acquired single photon LiDAR will be a significant asset and Scott is excited about the value it will add to future inventories for forest and road conditions across the land base.
+
+
+### Lauren Quist {-#lq}
+
+Lauren Quist is an analyst and planner at Hearst Forest Management Inc, and formally worked as a contractor for the MNFR. Lauren assists in preparing 10-year forest management plans, is a certified Photo-Interpreter for the Boreal Forest and Great Lakes - St.L. Forest, and works with FRI and LiDAR data to produce timber volume estimates. In her current role, Lauren’s responsibilities include producing FSC documentation & products (e.g. update Gap Analysis, HCV, caribou strategy), caribou habitat & disturbance analysis, and the preparation of annual forest management reports. Lauren is fascinated by the thinking and assumptions - right and wrong - embedded in the data, algorithms, models, guides, and tools we use in forest management.
+
+
+#### Responsibilities {-#responsibilties-lq}
+
+As a forest manager/planner, Lauren will support the project by providing valuable input on the relevance and application of project outcomes, specifically for future management applications, including determining vegetation density metrics.

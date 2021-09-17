@@ -24,7 +24,7 @@
 <meta name="author" content="Tristan RH Goodbody, Nicholas Coops, Jean-Romain Roussel" />
 
 
-<meta name="date" content="2021-09-14" />
+<meta name="date" content="2021-09-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -63,12 +63,23 @@
 <script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
 <script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
 <script src="libs/leaflet-providers-plugin-2.0.4.1/leaflet-providers-plugin.js"></script>
+<script src="libs/FlatGeoBuf-3.3.3/fgb.js"></script>
+<script src="libs/FlatGeoBuf-3.3.3/flatgeobuf-geojson.min.js"></script>
+<script src="libs/chromajs-2.1.0/chroma.min.js"></script>
+<link id="sites-1-attachment" rel="attachment" href="libs/sites-0.0.1/sites_layer.fgb"/>
 <link href="libs/HomeButton-0.0.1/home-button.css" rel="stylesheet" />
 <script src="libs/HomeButton-0.0.1/home-button.js"></script>
 <script src="libs/HomeButton-0.0.1/easy-button-src.min.js"></script>
 <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
 <link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
 <link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
+<link id="sites[3,]-1-attachment" rel="attachment" href="libs/sites[3,]-0.0.1/sites[3,]_layer.fgb"/>
+<link id="sites[4,]-1-attachment" rel="attachment" href="libs/sites[4,]-0.0.1/sites[4,]_layer.fgb"/>
+<link id="sites[1,]-1-attachment" rel="attachment" href="libs/sites[1,]-0.0.1/sites[1,]_layer.fgb"/>
+<link id="sites[2,]-1-attachment" rel="attachment" href="libs/sites[2,]-0.0.1/sites[2,]_layer.fgb"/>
+<link id="catalog-1-attachment" rel="attachment" href="libs/catalog-0.0.1/catalog_layer.fgb"/>
+<link id="roads-1-attachment" rel="attachment" href="libs/roads-0.0.1/roads_layer.fgb"/>
+<link id="road-1-attachment" rel="attachment" href="libs/road-0.0.1/road_layer.fgb"/>
 
 
 <style type="text/css">
@@ -176,6 +187,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="people.html"><a href="people.html#dr"><i class="fa fa-check"></i>Dr. Douglas Reid</a></li>
 <li class="chapter" data-level="" data-path="people.html"><a href="people.html#gmcc"><i class="fa fa-check"></i>Grant McCartney</a></li>
 <li class="chapter" data-level="" data-path="people.html"><a href="people.html#sm"><i class="fa fa-check"></i>Scott McPherson</a></li>
+<li class="chapter" data-level="" data-path="people.html"><a href="people.html#lq"><i class="fa fa-check"></i>Lauren Quist</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="projoverview.html"><a href="projoverview.html"><i class="fa fa-check"></i>Project Overview</a>
@@ -232,7 +244,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Automated Road and Attribute Extraction from SPL Data</h1>
 <p class="author"><em>Tristan RH Goodbody, Nicholas Coops, Jean-Romain Roussel</em></p>
-<p class="date"><em>2021-09-14</em></p>
+<p class="date"><em>2021-09-17</em></p>
 </div>
 <div id="overview" class="section level1 unnumbered">
 <h1>Overview</h1>

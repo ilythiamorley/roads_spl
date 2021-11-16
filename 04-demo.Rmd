@@ -31,10 +31,15 @@ library(dplyr)
 library(leaflet)
 
 #--- read in laz and road shapefile ---#
-ctg <- readLAScatalog("E:/SPL_Roads/Rproj/RMF_roads_SPL/tst/split")
-shp <- st_read("E:/SPL_Roads/Rproj/RMF_roads_SPL/tst/roads_.shp",quiet=TRUE)
+infolder <- "I:/Example_data/LAZ_files"
+ctg <- readLAScatalog(infolder, filter = "-drop_withheld -keep_random_fraction 0.25")
+dtm <- raster("D:/Block_2J/LAZ_Classified_Point_Clouds/block2j_0-1000_metrics/dtm_section/merged_dtm_tst_crs.tif")
+roads <- st_read("E:/SPL_Roads/data/Nipissing/tst_roads_clip3.shp")
+roads = st_cast(roads, "LINESTRING")
+water <- st_read("D:/example_data/water/water.shp")
 
-mapview::mapview(list(ctg,shp), layer.name = c("catalog","roads"),
+
+mapview::mapview(list(ctg,roads), layer.name = c("catalog","roads"),
                  color = "red", map.type = "Esri.WorldImagery")
 
 ```
@@ -45,19 +50,19 @@ Individual road segments can be visualized alongside co-located SPL data.
 
 ```{r}
 #--- test on single road ---#
-roadx <- shp %>%
-  dplyr::filter(OBJECTID == 29976)
+roadx <- roads %>%
+  dplyr::filter(FID %in% c(22))
 
 ```
 
 ```{r, echo = FALSE}
-m2 <- mapview::mapview(list(ctg,roadx), layer.name = c("catalog","road"),
+map2 <- mapview::mapview(list(ctg, roadx), layer.name = c("catalog","road"),
                  color = "red", map.type = "Esri.WorldImagery")
 
-coords <- c(-81.89471,
-            47.93648)
+coords <- c(-80.45357,
+            46.97875)
 
-m2@map %>% setView(coords[1], coords[2], zoom = 17)
+map2@map %>% setView(coords[1], coords[2], zoom = 17)
 
 ```
 
@@ -67,7 +72,15 @@ We define that we want to find the road using `options()`. An example of how dat
 
 ```{r,eval=FALSE}
 #--- find the roads ---#
-res1 <- measure_road(roadx, ctg, mffproads_default_parameters, relocate = TRUE)
+param = mffproads_default_parameters
+param$extraction$road_buff = 50
+
+corrected_road <- MFFProads::measure_road(road = roadx, ctg = ctg, dtm = dtm, water = water, param = param)
+
+mapview::mapview(list(roadx, corrected_road),
+                 layer.name = c("Inaccurate", "Corrected"),
+                 color = c("red", "blue"), map.type = "Esri.WorldImagery")
+
 ```
 
 ![Example of road detection](img/detect/detect.gif)

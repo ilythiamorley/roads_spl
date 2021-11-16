@@ -10,21 +10,21 @@ library(sf)
 library(sp)
 library(leaflet)
 
-dog <- c("dog", 48.918, -90.230)
-nipissing <- c("nipissing", 46.345, -79.456)
-romeo <- c("romeo", 48.252, -81.692)
-kenogami <- c("kenogami", 50.045, -86.793)
+dog <- c("Dog River-Matawin Forest", 48.918, -90.230)
+nipissing <- c("Nipissing Forest", 46.345, -79.456)
+romeo <- c("Romeo Malette Forest", 48.252, -81.692)
+kenogami <- c("Kenogami Forest", 50.045, -86.793)
 
-sites <- as.data.frame(rbind(dog,nipissing,romeo,kenogami))
-names(sites) <- c("site","lat","lon")
+Sites <- as.data.frame(rbind(dog,nipissing,romeo,kenogami))
+names(Sites) <- c("Site","lat","lon")
 
-sites <- sites %>%
+Sites <- Sites %>%
     sf::st_as_sf(., coords = c("lon", "lat"))
 
-st_crs(sites) <- st_crs(breweries)
+st_crs(Sites) <- st_crs(breweries)
 
 
-mapview::mapview(sites, map.type = "Esri.WorldImagery")
+mapview::mapview(Sites, map.type = "Esri.WorldImagery")
 
 ```
 
@@ -43,6 +43,27 @@ m@map %>% setView(coords[1], coords[2], zoom = 12)
 
 ```
 
+
+### Data Collection
+
+**SPL:** 
+- Flow by: Fugro USA Land, 
+- Inc. Project name: OMNR_YR1 z17.
+- Date: June 2018
+
+**Roads:**
+- Ministry of Natural Resources and Forestry (MNRF) road data 
+- Full roads network including road attributes, descriptions of which are accessed [here](https://www.sdc.gov.on.ca/sites/MNRF-PublicDocs/EN/CMID/MNR%20Road%20Segment%20-%20Data%20Description.pdf).
+
+**DEM:** Derived from LAS data. 
+
+**DSM:** Derived from LAS data.
+
+**CHM:** Derived from LAS data. 
+
+**Other:** Fire extent 2021, Lakes and rivers, Land ownership, Plot inventory data, and Polygon inventory
+
+
 ## Kenogami Forest {-#kenogami}
 
 The Kenogami Forest is located approximately 300 kilometres northeast of Thunder Bay. The Forest occupies an area of 1,977,684 hectares, of which 8.8% is water. Of the total forested area, less than 1% is patent land.  
@@ -58,6 +79,22 @@ m@map %>% setView(coords[1], coords[2], zoom = 12)
 
 ```
 
+### Data Collection
+
+**SPL:** NA
+
+**Roads:**
+- Ministry of Natural Resources and Forestry (MNRF) road data 
+- Full roads network including road attributes, descriptions of which are accessed [here](https://www.sdc.gov.on.ca/sites/MNRF-PublicDocs/EN/CMID/MNR%20Road%20Segment%20-%20Data%20Description.pdf).
+
+**DEM:** Will be derived from LAS data. 
+
+**DSM:** Will be derived from LAS data.
+
+**CHM:** Will be derived from LAS data.
+
+**Other:** Lakes and rivers, Land ownership, Plot inventory data, and Polygon inventory
+
 ## Dog River-Matawin Forest {-#dog}
 
 The Forest covers 1,065,934 hectares of forested area, water and other non-forested areas. The distribution of lands and water across the various ownerships, as produced from the planning inventory,is as follows: 86.9% of the total management unit is under Crown ownership (84.9% in managed plus 2.0% in Crown Other),12.6% is patent land and 0.5% is other(federal land). 
@@ -71,6 +108,26 @@ coords <- c(dog[3],
 
 m@map %>% setView(coords[1], coords[2], zoom = 12)
 ```
+
+### Data Collection
+
+**SPL:** 
+- Flow by: Leica Geosystems Inc.
+- Project name: OMNR_SPL100
+- Date: June 2019
+
+**Roads:**
+- Ministry of Natural Resources and Forestry (MNRF) road data 
+- Full roads network including road attributes, descriptions of which are accessed [here](https://www.sdc.gov.on.ca/sites/MNRF-PublicDocs/EN/CMID/MNR%20Road%20Segment%20-%20Data%20Description.pdf).
+
+**DEM:** Derived from LAS data. 
+
+**DSM:** Derived from LAS data.
+
+**CHM:** Derived from LAS data.
+
+**Other:** Lakes and rivers, Land ownership, Plot inventory data, and Polygon inventory
+
 
 ## Nipissing Forest {-#nipissing}
 
@@ -87,4 +144,21 @@ coords <- c(nipissing[3],
 m@map %>% setView(coords[1], coords[2], zoom = 12)
 ```
 
+### Data Collection
 
+**SPL:** 
+- Flow by: Unknown
+- Project name: Unknown
+- Date: Unknown
+
+**Roads:**
+- Ministry of Natural Resources and Forestry (MNRF) road data 
+- Full roads network including road attributes, descriptions of which are accessed [here](https://www.sdc.gov.on.ca/sites/MNRF-PublicDocs/EN/CMID/MNR%20Road%20Segment%20-%20Data%20Description.pdf).
+
+**DEM:** Derived from LAS data. 
+
+**DSM:** Derived from LAS data.
+
+**CHM:** Derived from LAS data. 
+
+**Other:** Lakes and rivers, Land ownership, Plot inventory data, and Polygon inventory

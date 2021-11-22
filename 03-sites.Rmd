@@ -34,7 +34,7 @@ The Romeo Malette Forest (Management Unit # 930) has been managed by RYAM Forest
 
 ```{r,echo=FALSE,warning=FALSE,message=FALSE}
 
-m <- mapview::mapview(sites[3,],map.type = "Esri.WorldImagery")
+m <- mapview::mapview(Sites[3,],map.type = "Esri.WorldImagery")
 
 coords <- c(romeo[3],
             romeo[2])
@@ -43,25 +43,21 @@ m@map %>% setView(coords[1], coords[2], zoom = 12)
 
 ```
 
-
-### Data Collection
+<br>
+**Data Collection**
 
 **SPL:** 
-- Flow by: Fugro USA Land, 
-- Inc. Project name: OMNR_YR1 z17.
-- Date: June 2018
+
+* Flow by: Fugro USA Land, 
+* Inc. Project name: OMNR_YR1 z17.
+* Date: June 2018
 
 **Roads:**
-- Ministry of Natural Resources and Forestry (MNRF) road data 
-- Full roads network including road attributes, descriptions of which are accessed [here](https://www.sdc.gov.on.ca/sites/MNRF-PublicDocs/EN/CMID/MNR%20Road%20Segment%20-%20Data%20Description.pdf).
 
-**DEM:** Derived from LAS data. 
+* Ministry of Natural Resources and Forestry (MNRF) road data 
+* Full roads network including road attributes, descriptions of which are accessed [here](https://www.sdc.gov.on.ca/sites/MNRF-PublicDocs/EN/CMID/MNR%20Road%20Segment%20-%20Data%20Description.pdf).
 
-**DSM:** Derived from LAS data.
-
-**CHM:** Derived from LAS data. 
-
-**Other:** Fire extent 2021, Lakes and rivers, Land ownership, Plot inventory data, and Polygon inventory
+**Additional Data:** Fire extent 2021, Lakes and rivers, Land ownership, Plot inventory data, and Polygon inventory
 
 
 ## Kenogami Forest {-#kenogami}
@@ -70,7 +66,7 @@ The Kenogami Forest is located approximately 300 kilometres northeast of Thunder
 
 ```{r,echo=FALSE,warning=FALSE,message=FALSE}
 
-m <- mapview::mapview(sites[4,],map.type = "Esri.WorldImagery")
+m <- mapview::mapview(Sites[4,],map.type = "Esri.WorldImagery")
 
 coords <- c(kenogami[3],
             kenogami[2])
@@ -79,21 +75,17 @@ m@map %>% setView(coords[1], coords[2], zoom = 12)
 
 ```
 
-### Data Collection
+<br>
+**Data Collection**
 
 **SPL:** NA
 
 **Roads:**
-- Ministry of Natural Resources and Forestry (MNRF) road data 
-- Full roads network including road attributes, descriptions of which are accessed [here](https://www.sdc.gov.on.ca/sites/MNRF-PublicDocs/EN/CMID/MNR%20Road%20Segment%20-%20Data%20Description.pdf).
 
-**DEM:** Will be derived from LAS data. 
+* Ministry of Natural Resources and Forestry (MNRF) road data 
+* Full roads network including road attributes, descriptions of which are accessed [here](https://www.sdc.gov.on.ca/sites/MNRF-PublicDocs/EN/CMID/MNR%20Road%20Segment%20-%20Data%20Description.pdf).
 
-**DSM:** Will be derived from LAS data.
-
-**CHM:** Will be derived from LAS data.
-
-**Other:** Lakes and rivers, Land ownership, Plot inventory data, and Polygon inventory
+**Additional Data:** Fire extent 2021, Lakes and rivers, Land ownership, Plot inventory data, and Polygon inventory
 
 ## Dog River-Matawin Forest {-#dog}
 
@@ -101,7 +93,7 @@ The Forest covers 1,065,934 hectares of forested area, water and other non-fores
 
 ```{r,echo=FALSE,warning=FALSE,message=FALSE}
 
-m <- mapview::mapview(sites[1,],map.type = "Esri.WorldImagery")
+m <- mapview::mapview(Sites[1,],map.type = "Esri.WorldImagery")
 
 coords <- c(dog[3],
             dog[2])
@@ -109,25 +101,23 @@ coords <- c(dog[3],
 m@map %>% setView(coords[1], coords[2], zoom = 12)
 ```
 
-### Data Collection
+<br>
+**Data Collection**
 
-**SPL:** 
-- Flow by: Leica Geosystems Inc.
-- Project name: OMNR_SPL100
-- Date: June 2019
+**SPL:**
+
+* Flow by: Leica Geosystems Inc.
+* Project name: OMNR_SPL100
+* Date: June 2019
 
 **Roads:**
-- Ministry of Natural Resources and Forestry (MNRF) road data 
-- Full roads network including road attributes, descriptions of which are accessed [here](https://www.sdc.gov.on.ca/sites/MNRF-PublicDocs/EN/CMID/MNR%20Road%20Segment%20-%20Data%20Description.pdf).
 
-**DEM:** Derived from LAS data. 
+* Ministry of Natural Resources and Forestry (MNRF) road data 
+* Full roads network including road attributes, descriptions of which are accessed [here](https://www.sdc.gov.on.ca/sites/MNRF-PublicDocs/EN/CMID/MNR%20Road%20Segment%20-%20Data%20Description.pdf).
+* Resolute Forest Products road data.
 
-**DSM:** Derived from LAS data.
 
-**CHM:** Derived from LAS data.
-
-**Other:** Lakes and rivers, Land ownership, Plot inventory data, and Polygon inventory
-
+**Additional Data:** Fire extent 2021, Lakes and rivers, Land ownership, Plot inventory data, and Polygon inventory
 
 ## Nipissing Forest {-#nipissing}
 
@@ -136,29 +126,25 @@ The Nipissing Forest is administered and managed by Nipissing Forest Resource Ma
 ```{r,echo=FALSE,warning=FALSE,message=FALSE}
 
 
-m <- mapview::mapview(sites[2,],map.type = "Esri.WorldImagery")
+m <- mapview::mapview(Sites[2,],map.type = "Esri.WorldImagery")
 
 coords <- c(nipissing[3],
             nipissing[2])
 
 m@map %>% setView(coords[1], coords[2], zoom = 12)
 ```
+<br>
+**Data Collection**
 
-### Data Collection
+**SPL:**
 
-**SPL:** 
-- Flow by: Unknown
-- Project name: Unknown
-- Date: Unknown
+* Flow by: Leica Geosystems
+* Project name: OMNR
+* Date: June 2019
 
 **Roads:**
-- Ministry of Natural Resources and Forestry (MNRF) road data 
-- Full roads network including road attributes, descriptions of which are accessed [here](https://www.sdc.gov.on.ca/sites/MNRF-PublicDocs/EN/CMID/MNR%20Road%20Segment%20-%20Data%20Description.pdf).
 
-**DEM:** Derived from LAS data. 
+* Ministry of Natural Resources and Forestry (MNRF) road data 
+* Full roads network including road attributes, descriptions of which are accessed [here](https://www.sdc.gov.on.ca/sites/MNRF-PublicDocs/EN/CMID/MNR%20Road%20Segment%20-%20Data%20Description.pdf).
 
-**DSM:** Derived from LAS data.
-
-**CHM:** Derived from LAS data. 
-
-**Other:** Lakes and rivers, Land ownership, Plot inventory data, and Polygon inventory
+**Additional Data:** Fire extent 2021, Lakes and rivers, Land ownership, Plot inventory data, and Polygon inventory

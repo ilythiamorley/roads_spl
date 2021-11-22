@@ -20,9 +20,9 @@ The implementation of this algorithm is a work in progress. Function names are l
 
 ## Example road {-#ex}
 
-This example uses a 1 km^2^ section of SPL data and road network shapefile from the [Romeo Malette](-#romeo) forest.
+This example uses a section of SPL data and road network shapefile from the [Nipissing Forest](-#nipissing).
 
-```{r,warning=FALSE,message=FALSE}
+```{r,warning=FALSE,message=FALSE, results='hide'}
 #--- load in required libraries ---#
 library(lidR)
 library(sf)
@@ -33,14 +33,18 @@ library(leaflet)
 #--- read in laz and road shapefile ---#
 infolder <- "I:/Example_data/LAZ_files"
 ctg <- readLAScatalog(infolder, filter = "-drop_withheld -keep_random_fraction 0.25")
-dtm <- raster("D:/Block_2J/LAZ_Classified_Point_Clouds/block2j_0-1000_metrics/dtm_section/merged_dtm_tst_crs.tif")
 roads <- st_read("E:/SPL_Roads/data/Nipissing/tst_roads_clip3.shp")
 roads = st_cast(roads, "LINESTRING")
-water <- st_read("D:/example_data/water/water.shp")
 
 
-mapview::mapview(list(ctg,roads), layer.name = c("catalog","roads"),
+```
+```{r, warning=FALSE,message=FALSE}
+mapview::mapview(list(ctg,roads), layer.name = c("Catalog","Road"),
                  color = "red", map.type = "Esri.WorldImagery")
+```
+```{r, echo = FALSE, warning=FALSE,message=FALSE, results='hide'}
+dtm <- raster("D:/Block_2J/LAZ_Classified_Point_Clouds/block2j_0-1000_metrics/dtm_section/merged_dtm_tst_crs.tif")
+water <- st_read("I:/Example_data/Water/NPS_water.shp")
 
 ```
 
@@ -48,21 +52,21 @@ mapview::mapview(list(ctg,roads), layer.name = c("catalog","roads"),
 
 Individual road segments can be visualized alongside co-located SPL data.
 
-```{r}
+```{r, warning=FALSE,message=FALSE, results='hide'}
 #--- test on single road ---#
-roadx <- roads %>%
-  dplyr::filter(FID %in% c(22))
+road <- roads %>%
+  dplyr::filter(FID %in% c(10))
 
 ```
 
-```{r, echo = FALSE}
-map2 <- mapview::mapview(list(ctg, roadx), layer.name = c("catalog","road"),
+```{r, echo = FALSE, warning=FALSE,message=FALSE}
+map2 <- mapview::mapview(list(ctg, road), layer.name = c("Catalog","Road"),
                  color = "red", map.type = "Esri.WorldImagery")
 
 coords <- c(-80.45357,
             46.97875)
 
-map2@map %>% setView(coords[1], coords[2], zoom = 17)
+map2@map %>% setView(coords[1], coords[2], zoom = 13)
 
 ```
 
@@ -70,14 +74,15 @@ map2@map %>% setView(coords[1], coords[2], zoom = 17)
 
 We define that we want to find the road using `options()`. An example of how data are visualized is provided below. Note the different metrics used. A spike in the purple lines denotes an increased probability of road for a given point in the transect.
 
-```{r,eval=FALSE}
+```{r, warning=FALSE,message=FALSE, results='hide'}
 #--- find the roads ---#
 param = mffproads_default_parameters
-param$extraction$road_buff = 50
+param$extraction$road_buff = 25
 
-corrected_road <- MFFProads::measure_road(road = roadx, ctg = ctg, dtm = dtm, water = water, param = param)
-
-mapview::mapview(list(roadx, corrected_road),
+corrected_road <- MFFProads::measure_road(road = road, ctg = ctg, dtm = dtm, water = water, param = param)
+```
+```{r, eval=TRUE, warning=FALSE,message=FALSE }
+mapview::mapview(list(road, corrected_road),
                  layer.name = c("Inaccurate", "Corrected"),
                  color = c("red", "blue"), map.type = "Esri.WorldImagery")
 
@@ -101,4 +106,48 @@ Metrics about the road can also be measured, giving details about drivable quali
 4. Road doesnt exist
 
 
-![Example of scoring](img/scoring.png)
+![Example of scoring](img/scoring_.jpg)
+## Example multiple roads {-#ex}
+
+This example uses a section of SPL data and road network shapefile from the [Nipissing Forest](-#nipissing).
+
+Road segments can be visualized alongside co-located SPL data.
+
+```{r, warning=FALSE, results='hide', message=FALSE}
+roads <- st_read("E:/SPL_Roads/data/Nipissing/tst_roads_clip3.shp")
+roads = st_cast(roads, "LINESTRING")
+```
+```{r, warning=FALSE,message=FALSE, results='hide'}
+#--- test on single road ---#
+roads <- roads %>%
+  dplyr::filter(FID %in% c(1:120))
+
+```
+
+```{r, echo = FALSE, warning=FALSE,message=FALSE}
+map3 <- mapview::mapview(list(ctg, roads), layer.name = c("Catalog","Road"),
+                 color = "red", map.type = "Esri.WorldImagery")
+
+coords <- c(-80.45357,
+            46.97875)
+
+map3@map %>% setView(coords[1], coords[2], zoom = 13)
+
+```
+
+## Detecting the roads {-#detect}
+
+We define that we want to find the roads using `options()`. An example of how data are visualized is provided below.
+```{r, warning=FALSE,message=FALSE, results='hide'}
+#--- find the roads ---#
+param = mffproads_default_parameters
+param$extraction$road_buff = 25
+
+corrected_roads <- MFFProads::measure_roads(road = roads, ctg = ctg, dtm = dtm, water = water, param = param)
+```
+```{r, eval=TRUE, warning=FALSE,message=FALSE }
+mapview::mapview(list(roads, corrected_roads),
+                 layer.name = c("Inaccurate", "Corrected"),
+                 color = c("red", "blue"), map.type = "Esri.WorldImagery")
+
+```

@@ -51,8 +51,6 @@ The researchers also have a long, productive relationship with Grant McCartney a
 The Ontario Ministry of Natural Resources has a critical role to play in mapping roads provincially and the collaboration between the research team with the Ministry staff ensures both access to the SPL data to the researchers, but also a mechanism for the Ministry to utilize these results quickly and promote them for use throughout the Province in particular in areas where road information is poor, yet critically needed, for forest management and species at risk activities. 
 
 
-   
-   
      
 
 ```{r,echo=FALSE,fig.align='center'}

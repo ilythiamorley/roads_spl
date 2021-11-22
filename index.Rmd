@@ -1,6 +1,6 @@
 --- 
 title: "Automated Road and Attribute Extraction from SPL Data"
-author: "Tristan RH Goodbody, Nicholas Coops, Jean-Romain Roussel, Ilythia Morley"
+author: "Ilythia Morley, Tristan RH Goodbody, Nicholas Coops, Jean-Romain Roussel"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book

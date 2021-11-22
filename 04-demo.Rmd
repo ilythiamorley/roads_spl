@@ -81,7 +81,7 @@ param$extraction$road_buff = 25
 
 corrected_road <- MFFProads::measure_road(road = road, ctg = ctg, dtm = dtm, water = water, param = param)
 ```
-```{r, eval=TRUE, warning=FALSE,message=FALSE }
+```{r, eval=TRUE, warning=FALSE,message=FALSE}
 mapview::mapview(list(road, corrected_road),
                  layer.name = c("Inaccurate", "Corrected"),
                  color = c("red", "blue"), map.type = "Esri.WorldImagery")
@@ -107,7 +107,7 @@ Metrics about the road can also be measured, giving details about drivable quali
 
 
 ![Example of scoring](img/scoring_.jpg)
-## Example multiple roads {-#ex}
+## Example multiple roads {-#mex}
 
 This example uses a section of SPL data and road network shapefile from the [Nipissing Forest](-#nipissing).
 
@@ -138,14 +138,14 @@ map3@map %>% setView(coords[1], coords[2], zoom = 13)
 ## Detecting the roads {-#detect}
 
 We define that we want to find the roads using `options()`. An example of how data are visualized is provided below.
-```{r, warning=FALSE,message=FALSE, results='hide'}
+```{r, warning=FALSE,message=FALSE, results='hide', eval=FALSE}
 #--- find the roads ---#
 param = mffproads_default_parameters
 param$extraction$road_buff = 25
 
 corrected_roads <- MFFProads::measure_roads(road = roads, ctg = ctg, dtm = dtm, water = water, param = param)
 ```
-```{r, eval=TRUE, warning=FALSE,message=FALSE }
+```{r, eval=TRUE, warning=FALSE,message=FALSE, eval=FALSE}
 mapview::mapview(list(roads, corrected_roads),
                  layer.name = c("Inaccurate", "Corrected"),
                  color = c("red", "blue"), map.type = "Esri.WorldImagery")

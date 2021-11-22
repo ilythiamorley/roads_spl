@@ -1,3 +1,0 @@
-data-collection
-data-collection-1
-data-collection-2

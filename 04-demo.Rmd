@@ -39,7 +39,7 @@ roads = st_cast(roads, "LINESTRING")
 
 ```
 ```{r, warning=FALSE,message=FALSE}
-mapview::mapview(list(ctg,roads), layer.name = c("Catalog","Road"),
+mapview::mapview(list(ctg,roads), layer.name = c("Catalog","Roads"),
                  color = "red", map.type = "Esri.WorldImagery")
 ```
 ```{r, echo = FALSE, warning=FALSE,message=FALSE, results='hide'}
@@ -125,7 +125,7 @@ roads <- roads %>%
 ```
 
 ```{r, echo = FALSE, warning=FALSE,message=FALSE}
-map3 <- mapview::mapview(list(ctg, roads), layer.name = c("Catalog","Road"),
+map3 <- mapview::mapview(list(ctg, roads), layer.name = c("Catalog","Roads"),
                  color = "red", map.type = "Esri.WorldImagery")
 
 coords <- c(-80.45357,
